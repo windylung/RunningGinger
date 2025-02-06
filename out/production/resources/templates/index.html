@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Smell Table</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            border: 1px solid #cccccc;
+            text-align: center;
+        }
+        th, td {
+            padding: 20px;
+            border: 1px solid #cccccc;
+        }
+        thead {
+            background-color: #444444;
+            color: #ffffff;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tbody tr:hover {
+            background-color: #e0e0e0;
+        }
+        h3 {
+            text-align: center;
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h3>Smell Table</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Humidity</th>
+            <th>Temperature</th>
+            <th>Smell</th>
+            <th>Timestamp</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="record, idx : ${records}">
+            <td th:text="${record.id ?: '-'}"></td>
+            <td th:text="${record.humidity ?: '-'}"></td>
+            <td th:text="${record.temperature ?: '-'}"></td>
+            <td th:text="${record.smell ?: '-'}"></td>
+            <td th:text="${record.timestamp ?: '-'}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

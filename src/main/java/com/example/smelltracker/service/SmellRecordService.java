@@ -6,6 +6,8 @@ import com.example.smelltracker.repository.SmellRecordRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SmellRecordService {
     private final SmellRecordRepository smellRecordRepository;
@@ -22,5 +24,9 @@ public class SmellRecordService {
                 .smell(record.getSmell())
                 .build();
         return smellRecordRepository.save(smellRecord);
+    }
+
+    public List<SmellRecord> findAllSmellRecords() {
+        return smellRecordRepository.findAll();
     }
 }

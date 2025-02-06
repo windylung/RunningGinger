@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Data
 public class SmellRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
